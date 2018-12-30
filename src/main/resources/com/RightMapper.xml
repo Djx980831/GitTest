@@ -36,4 +36,13 @@
         insert into tb_emp values(null,#{role.roleid},#{empno},#{empname},#{password},#{tel})
     </insert>
 
+    <select id="getLikeSelect" parameterType="emp" resultType="emp">
+        select * from tb_emp
+        <where>
+            <if test="empName != null">
+                empname like "%"#{empName}"%"
+            </if>
+        </where>
+    </select>
+
 </mapper>

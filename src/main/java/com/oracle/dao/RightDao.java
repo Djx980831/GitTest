@@ -13,4 +13,6 @@ public interface RightDao {
  public void deletes(int []a);
 
  public void insert(Emp emp);
+
+ public List<Emp> getLikeSelect(Emp emp);
 }

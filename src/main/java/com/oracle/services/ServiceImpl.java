@@ -58,4 +58,15 @@ public class ServiceImpl implements Service {
             session.close();;
         }
     }
+
+    @Override
+    public List<Emp> getLikeSelect(Emp emp) {
+        SqlSession session = SessionUtil.openSession();
+        RightDao dao = session.getMapper(RightDao.class);
+        List<Emp> list = dao.getLikeSelect(emp);
+        session.close();
+        return list;
+    }
+
+
 }
