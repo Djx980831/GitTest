@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.oracle.dao.RightDao">
+
+   <select id="select" resultType="emp">
+       select * from tb_emp
+   </select>
+
+   <select id="getEmps" parameterType="emp" resultType="emp">
+       select * from tb_emp
+       <where>
+           <if test="empName != null">
+               and empName=#{empName}
+           </if>
+           <if test="empno != null">
+               and empno=#{empno}
+           </if>
+       </where>
+
+   </select>
+
+    <delete id="deletes" parameterType="int[]">
+        delete from tb_emp
+        <where>
+            empid in
+            <foreach collection="array" open="(" close=")" separator="," item="id">
+                #{id}
+            </foreach>
+        </where>
+    </delete>
+
+    <insert id="insert" parameterType="emp">
+        insert into tb_emp values(null,#{role.roleid},#{empno},#{empname},#{password},#{tel})
+    </insert>
+
+</mapper>
