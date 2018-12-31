@@ -33,7 +33,7 @@
     </delete>
 
     <insert id="insert" parameterType="emp">
-        insert into tb_emp values(null,#{role.roleid},#{empno},#{empname},#{password},#{tel})
+        insert into tb_emp values(null,#{role.roleid},#{empno},#{empName},#{password},#{tel})
     </insert>
 
     <select id="getLikeSelect" parameterType="emp" resultType="emp">
