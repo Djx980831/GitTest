@@ -27,14 +27,37 @@ public class TestRightTest {
     public void test() throws Exception{
         Service service = new ServiceImpl();
         Emp emp = new Emp();
-//        emp.setEmpName("关羽");
-//        emp.setEmpno("112");
-//        emp.setTel("1566543");
+//        //emp.setEmpName("詹");
+//        emp.setEmpName("曹操");
+//        emp.setEmpno("114");
+//        emp.setTel("1822323");
 //        emp.setRole(new Role(2));
-//        emp.setPassword("qwerw");
+//        emp.setPassword("987654");
 //
 //        service.insert(emp);
 
-        service.deletes(new int[]{2,7});
+//       List<Emp> list = service.getLikeSelect(emp);
+//       for(Emp e : list){
+//           System.out.println(e);
+//       }
+
+//        List<Emp> list = service.getUsers();
+//        for(Emp e : list){
+//            System.out.println(e);
+//            System.out.println("---------");
+//        }
+
+//        List<Role> list = service.getRoles();
+//        System.out.println("总的部门数："+list.size());
+//        for(Role r : list){
+//            System.out.println(r+" "+r.getEmp());
+//            System.out.println("-----------");
+//        }
+
+        //emp.setEmpid(1);
+        List<Emp> list = service.selectById(emp);
+        for(Emp e : list){
+            System.out.println(e);
+        }
     }
 }

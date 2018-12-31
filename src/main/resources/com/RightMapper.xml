@@ -83,4 +83,12 @@
         </association>
     </resultMap>
 
+    <select id="selectById" parameterType="emp" resultType="emp">
+        select * from tb_emp
+        <where>
+            <if test="empid != null"/>
+            and empid=#{empid}
+        </where>
+    </select>
+
 </mapper>

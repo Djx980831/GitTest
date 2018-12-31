@@ -20,4 +20,6 @@ public interface RightDao {
  public List<Emp> getUsers();
 
  public List<Role> getRoles();
+
+ public List<Emp> selectById(Emp emp);
 }

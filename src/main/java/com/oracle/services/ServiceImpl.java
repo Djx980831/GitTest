@@ -87,5 +87,14 @@ public class ServiceImpl implements Service {
         return list;
     }
 
+    @Override
+    public List<Emp> selectById(Emp emp) {
+        SqlSession session = SessionUtil.openSession();
+        RightDao dao = session.getMapper(RightDao.class);
+        List<Emp> list = dao.selectById(emp);
+        session.close();
+        return list;
+    }
+
 
 }
