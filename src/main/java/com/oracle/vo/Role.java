@@ -7,12 +7,21 @@ public class Role {
     String roleName;
     String roleDesc;
     List<Right> rights;
+    Emp emp;
 
     public Role() {}
 
     public Role(int roleid) {
         super();
         this.roleid = roleid;
+    }
+
+    public Emp getEmp() {
+        return emp;
+    }
+
+    public void setEmp(Emp emp) {
+        this.emp = emp;
     }
 
     public int getRoleid() {

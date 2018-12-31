@@ -3,6 +3,7 @@ package com.oracle.services;
 import com.oracle.dao.RightDao;
 import com.oracle.util.SessionUtil;
 import com.oracle.vo.Emp;
+import com.oracle.vo.Role;
 import org.apache.ibatis.session.SqlSession;
 
 import java.util.Collections;
@@ -64,6 +65,24 @@ public class ServiceImpl implements Service {
         SqlSession session = SessionUtil.openSession();
         RightDao dao = session.getMapper(RightDao.class);
         List<Emp> list = dao.getLikeSelect(emp);
+        session.close();
+        return list;
+    }
+
+    @Override
+    public List<Emp> getUsers() {
+        SqlSession session = SessionUtil.openSession();
+        RightDao dao = session.getMapper(RightDao.class);
+        List<Emp> list = dao.getUsers();
+        session.close();
+        return list;
+    }
+
+    @Override
+    public List<Role> getRoles() {
+        SqlSession session = SessionUtil.openSession();
+        RightDao dao = session.getMapper(RightDao.class);
+        List<Role> list = dao.getRoles();
         session.close();
         return list;
     }
