@@ -2,6 +2,7 @@ package com.oracle.services;
 
 import com.oracle.vo.Emp;
 import com.oracle.vo.Role;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
@@ -22,4 +23,6 @@ public interface Service {
     public List<Role> getRoles();
 
     public List<Emp> selectById(Emp emp);
+
+    public List<Emp> sortByAny(String value);
 }

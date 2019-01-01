@@ -46,18 +46,18 @@ public class TestRightTest {
 //            System.out.println(e);
 //            System.out.println("---------");
 //        }
-
-//        List<Role> list = service.getRoles();
-//        System.out.println("总的部门数："+list.size());
-//        for(Role r : list){
-//            System.out.println(r+" "+r.getEmp());
-//            System.out.println("-----------");
-//        }
+//
+        List<Role> list = service.getRoles();
+        System.out.println("总的部门数："+list.size());
+        for(Role r : list){
+            System.out.println(r+" "+" "+r.getEmps()+" 部门人数："+r.getEmps().size());
+            System.out.println("-----------");
+        }
 
         //emp.setEmpid(1);
-        List<Emp> list = service.selectById(emp);
-        for(Emp e : list){
-            System.out.println(e);
-        }
+//       List<Emp> list = service.sortByAny("empname");
+//       for(Emp e : list){
+//           System.out.println(e);
+//       }
     }
 }

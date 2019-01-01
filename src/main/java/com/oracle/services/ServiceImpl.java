@@ -4,9 +4,9 @@ import com.oracle.dao.RightDao;
 import com.oracle.util.SessionUtil;
 import com.oracle.vo.Emp;
 import com.oracle.vo.Role;
+import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.session.SqlSession;
 
-import java.util.Collections;
 import java.util.List;
 
 public class ServiceImpl implements Service {
@@ -92,6 +92,15 @@ public class ServiceImpl implements Service {
         SqlSession session = SessionUtil.openSession();
         RightDao dao = session.getMapper(RightDao.class);
         List<Emp> list = dao.selectById(emp);
+        session.close();
+        return list;
+    }
+
+    @Override
+    public List<Emp> sortByAny(String value) {
+        SqlSession session = SessionUtil.openSession();
+        RightDao dao = session.getMapper(RightDao.class);
+        List<Emp> list = dao.sortByAny(value);
         session.close();
         return list;
     }

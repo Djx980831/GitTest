@@ -46,7 +46,7 @@
     </select>
 
     <select id="getUsers" resultMap="myUsers">
-        select empid,empno,password,empname,tb_role.roleid,tel from tb_emp inner join tb_role
+        select empid,empno,password,empname,tb_role.roleid,tel,rolename from tb_emp inner join tb_role
         on tb_emp.roleid=tb_role.roleid
     </select>
     
@@ -60,27 +60,30 @@
         <!-- 映射一个集合（多对一）javaType：dept中的数据类型 -->
         <association property="role" javaType="role">
             <id column="roleid" property="roleid"/>
-            <result column="rolename" property="rolename"/>
+            <result column="rolename" property="roleName"/>
         </association>
     </resultMap>
 
 
     <select id="getRoles" resultMap="myRoles">
-        select empid,empno,password,empname,tb_role.roleid,tel from tb_emp inner join tb_role
+        select empid,empno,password,empname,tb_role.roleid,rolename,tel from tb_emp inner join tb_role
         on tb_emp.roleid=tb_role.roleid
     </select>
 
+
+
+
     <resultMap id="myRoles" type="role">
         <id column="roleid" property="roleid"/>
-        <result column="rolename" property="rolename"/>
+        <result column="rolename" property="roleName"/>
         <!--映射一个集合（一对多） ofType：emps中的数据类型 -->
-        <association property="emp" javaType="emp">
+        <collection property="emps" ofType="emp">
             <id column="empid" property="empid"/>
             <result column="empno" property="empno"/>
             <result column="password" property="password"/>
             <result column="empname" property="empName"/>
             <result column="tel" property="tel"/>
-        </association>
+        </collection>
     </resultMap>
 
     <select id="selectById" parameterType="emp" resultType="emp">
@@ -89,6 +92,10 @@
             <if test="empid != null"/>
             and empid=#{empid}
         </where>
+    </select>
+
+    <select id="sortByAny" resultType="emp">
+        select * from tb_emp order by ${name}
     </select>
 
 </mapper>

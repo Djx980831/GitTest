@@ -6,8 +6,16 @@ public class Role {
     int roleid;
     String roleName;
     String roleDesc;
-    List<Right> rights;
+    List<Emp> emps;
     Emp emp;
+
+    public Emp getEmp() {
+        return emp;
+    }
+
+    public void setEmp(Emp emp) {
+        this.emp = emp;
+    }
 
     public Role() {}
 
@@ -16,12 +24,12 @@ public class Role {
         this.roleid = roleid;
     }
 
-    public Emp getEmp() {
-        return emp;
+    public List<Emp> getEmps() {
+        return emps;
     }
 
-    public void setEmp(Emp emp) {
-        this.emp = emp;
+    public void setEmps(List<Emp> emps) {
+        this.emps = emps;
     }
 
     public int getRoleid() {
@@ -42,16 +50,12 @@ public class Role {
     public void setRoleDesc(String roleDesc) {
         this.roleDesc = roleDesc;
     }
-    public List<Right> getRights() {
-        return rights;
-    }
-    public void setRights(List<Right> rights) {
-        this.rights = rights;
-    }
+
     @Override
     public String toString() {
-        return "Role [roleid=" + roleid + ", roleName=" + roleName + ", roleDesc=" + roleDesc + ", rights=" + rights
-                + "]";
+        return "Role{" +
+                "roleid=" + roleid +
+                ", roleName='" + roleName + '\'' +
+                '}';
     }
-
 }
